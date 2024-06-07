@@ -3,7 +3,7 @@ class WINDOWAPI {
         this.windows = [];
         this.defaultWidth = 400;
         this.defaultHeight = 300;
-        this.resizeHandleSize = 10; // Size of the resize handle in pixels
+        this.resizeHandleSize = 10;
     }
 
     createWindow(title, width = this.defaultWidth, height = this.defaultHeight) {
@@ -12,16 +12,16 @@ class WINDOWAPI {
         windowElement.style.width = `${width}px`;
         windowElement.style.height = `${height}px`;
         windowElement.style.position = 'absolute';
-        windowElement.style.border = '1px solid #333'; // Dark border color
-        windowElement.style.backgroundColor = '#222'; // Dark background color
-        windowElement.style.color = '#fff'; // Light text color
-        windowElement.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.3)'; // Light shadow color
-        windowElement.style.resize = 'both'; // Enable resizing
-        windowElement.style.overflow = 'auto'; // Allow overflow content to be scrolled
+        windowElement.style.border = '1px solid #333';
+        windowElement.style.backgroundColor = '#222';
+        windowElement.style.color = '#fff';
+        windowElement.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.3)';
+        windowElement.style.resize = 'both';
+        windowElement.style.overflow = 'auto';
 
         const titleBar = document.createElement('div');
         titleBar.className = 'title-bar';
-        titleBar.style.backgroundColor = '#111'; // Dark title bar color
+        titleBar.style.backgroundColor = '#111';
         titleBar.textContent = title;
         windowElement.appendChild(titleBar);
 
@@ -46,13 +46,13 @@ class WINDOWAPI {
         minButton.addEventListener('click', () => {
             if (!isMinimized) {
                 windowElement.style.height = `20px`;
-                windowElement.querySelector('.content').style.display = 'none'; // Hide content
-                windowElement.querySelector('.resize-handle').style.display = 'none'; // Hide resize handle
+                windowElement.querySelector('.content').style.display = 'none';
+                windowElement.querySelector('.resize-handle').style.display = 'none';
                 isMinimized = true;
             } else {
                 windowElement.style.height = `${height}px`;
-                windowElement.querySelector('.content').style.display = 'block'; // Show content
-                windowElement.querySelector('.resize-handle').style.display = 'block'; // Show resize handle
+                windowElement.querySelector('.content').style.display = 'block';
+                windowElement.querySelector('.resize-handle').style.display = 'block';
                 isMinimized = false;
             }
         });
@@ -70,7 +70,7 @@ class WINDOWAPI {
         resizeHandle.style.position = 'absolute';
         resizeHandle.style.right = '0';
         resizeHandle.style.bottom = '0';
-        resizeHandle.style.cursor = 'se-resize'; // Resize cursor for bottom right corner
+        resizeHandle.style.cursor = 'se-resize';
         windowElement.appendChild(resizeHandle);
 
         let isDragging = false;
